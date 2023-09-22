@@ -20,13 +20,44 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="yMR-5a-vhO">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="59.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="127.66666666666667"/>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTt-49-lzL">
+                                        <rect key="frame" x="0.0" y="127.66666666666667" width="393" height="34.333333333333329"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbV-rN-Zz3">
+                                                <rect key="frame" x="0.0" y="0.0" width="131" height="34.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfS-qN-9tD">
+                                                <rect key="frame" x="131" y="0.0" width="131" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Price"/>
+                                                <connections>
+                                                    <action selector="sortPrice:" destination="aI5-2V-LmK" eventType="touchUpInside" id="Q3b-MV-Uz5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V88-ab-hsF">
+                                                <rect key="frame" x="262" y="0.0" width="131" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="gray" title="Name"/>
+                                                <connections>
+                                                    <action selector="sortName:" destination="aI5-2V-LmK" eventType="touchUpInside" id="j0v-QQ-nSf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="pfS-qN-9tD" firstAttribute="width" secondItem="V88-ab-hsF" secondAttribute="width" id="ZIi-h4-azK"/>
+                                            <constraint firstItem="pfS-qN-9tD" firstAttribute="width" secondItem="PbV-rN-Zz3" secondAttribute="width" id="tAG-FK-MRK"/>
+                                        </constraints>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Nx-ZM-sJS">
-                                        <rect key="frame" x="0.0" y="59.333333333333343" width="393" height="341"/>
+                                        <rect key="frame" x="0.0" y="161.99999999999997" width="393" height="298.33333333333326"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mIG-vw-tGD">
-                                                <rect key="frame" x="0.0" y="0.0" width="235.66666666666666" height="341"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="235.66666666666666" height="298.33333333333331"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Item:
 1 lb of Butter
@@ -39,7 +70,7 @@ Nachos with Cod Fillet</string>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yMN-uH-1KP">
-                                                <rect key="frame" x="235.66666666666663" y="0.0" width="157.33333333333337" height="341"/>
+                                                <rect key="frame" x="235.66666666666663" y="0.0" width="157.33333333333337" height="298.33333333333331"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Price:
 $3.18
@@ -57,7 +88,7 @@ $21.99</string>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bj0-xZ-9pE">
-                                        <rect key="frame" x="0.0" y="400.33333333333331" width="393" height="34.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="460.33333333333331" width="393" height="34.333333333333314"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item to add to cart" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJv-cm-qBi">
                                                 <rect key="frame" x="0.0" y="0.0" width="253" height="34.333333333333336"/>
@@ -83,15 +114,15 @@ $21.99</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ri6-Q9-C9i">
-                                        <rect key="frame" x="0.0" y="434.66666666666669" width="393" height="34"/>
+                                        <rect key="frame" x="0.0" y="494.66666666666674" width="393" height="59"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password or new price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KSl-rz-Fiz">
-                                                <rect key="frame" x="0.0" y="0.0" width="274.66666666666669" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="274.66666666666669" height="59"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ys-WX-j51">
-                                                <rect key="frame" x="274.66666666666669" y="0.0" width="118.33333333333331" height="34"/>
+                                                <rect key="frame" x="274.66666666666669" y="0.0" width="118.33333333333331" height="59"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="gray" title="Admin Login">
                                                     <color key="baseBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -103,16 +134,16 @@ $21.99</string>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="amd-ab-oJJ">
-                                        <rect key="frame" x="0.0" y="468.66666666666674" width="393" height="383.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="553.66666666666663" width="393" height="298.33333333333337"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="P4k-zu-gDu">
-                                                <rect key="frame" x="0.0" y="1.6666666666666643" width="393" height="74.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="1.6666666666666679" width="393" height="57.666666666666657"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EsW-PN-E6x">
-                                                <rect key="frame" x="0.0" y="76.666666666666686" width="393" height="244"/>
+                                                <rect key="frame" x="0.0" y="59.666666666666742" width="393" height="194"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rxv-xo-QGs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235.66666666666666" height="244"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="235.66666666666666" height="194"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <string key="text">Item:
 </string>
@@ -121,7 +152,7 @@ $21.99</string>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z7b-pa-nu3">
-                                                        <rect key="frame" x="235.66666666666663" y="0.0" width="157.33333333333337" height="244"/>
+                                                        <rect key="frame" x="235.66666666666663" y="0.0" width="157.33333333333337" height="194"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <string key="text">Price:
 </string>
@@ -134,14 +165,14 @@ $21.99</string>
                                                     <constraint firstItem="z7b-pa-nu3" firstAttribute="width" secondItem="EsW-PN-E6x" secondAttribute="width" multiplier="0.4" id="Nhh-SS-ZNZ"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yom-eU-oGM">
-                                                <rect key="frame" x="0.0" y="320.66666666666669" width="393" height="38.333333333333314"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVALID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4e-Kx-KBa">
+                                                <rect key="frame" x="0.0" y="253.66666666666677" width="393" height="19.333333333333343"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVALID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4e-Kx-KBa">
-                                                <rect key="frame" x="0.0" y="358.99999999999994" width="393" height="24.333333333333314"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yom-eU-oGM">
+                                                <rect key="frame" x="0.0" y="253.66666666666671" width="393" height="44.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -150,14 +181,15 @@ $21.99</string>
                                         <constraints>
                                             <constraint firstItem="l4e-Kx-KBa" firstAttribute="height" secondItem="EsW-PN-E6x" secondAttribute="height" multiplier="0.1" id="AsD-uj-Wgg"/>
                                             <constraint firstItem="P4k-zu-gDu" firstAttribute="height" secondItem="amd-ab-oJJ" secondAttribute="height" multiplier="0.2" id="CEt-W2-bKL"/>
-                                            <constraint firstItem="yom-eU-oGM" firstAttribute="height" secondItem="amd-ab-oJJ" secondAttribute="height" multiplier="0.1" id="txM-iJ-YbE"/>
+                                            <constraint firstItem="yom-eU-oGM" firstAttribute="height" secondItem="amd-ab-oJJ" secondAttribute="height" multiplier="0.15" id="txM-iJ-YbE"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="4Nx-ZM-sJS" firstAttribute="height" secondItem="cLZ-TG-vst" secondAttribute="height" multiplier="0.35" id="2Er-MK-vKE"/>
+                                    <constraint firstItem="amd-ab-oJJ" firstAttribute="height" secondItem="cLZ-TG-vst" secondAttribute="height" multiplier="0.35" id="C1h-nN-0oX"/>
                                     <constraint firstItem="4Nx-ZM-sJS" firstAttribute="width" secondItem="cLZ-TG-vst" secondAttribute="width" id="Rur-Lo-SZk"/>
-                                    <constraint firstItem="amd-ab-oJJ" firstAttribute="height" secondItem="cLZ-TG-vst" secondAttribute="height" multiplier="0.45" id="oo7-hz-rty"/>
-                                    <constraint firstItem="4Nx-ZM-sJS" firstAttribute="height" secondItem="cLZ-TG-vst" secondAttribute="height" multiplier="0.4" id="rQe-Cr-3hZ"/>
+                                    <constraint firstItem="yMR-5a-vhO" firstAttribute="height" secondItem="cLZ-TG-vst" secondAttribute="height" multiplier="0.15" id="u6r-jB-mo5"/>
                                 </constraints>
                             </stackView>
                         </subviews>

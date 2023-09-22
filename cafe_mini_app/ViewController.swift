@@ -37,29 +37,21 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cartAddAction(_ sender: UIButton) {
-        var targetItems: UITextView!
-        var targetPrices: UITextView!
-        
-        if(admin) {
-            targetItems = menuItemList
-            targetPrices = menuPriceList
-        } else {
-            targetItems = cartItemList
-            targetPrices = cartItemList
-        }
-        
         if(cartAdd.text! == "" || ( !menuItems.contains(cartAdd.text!) && !admin)) {
-            return
+            invalidLabel.isHidden = false
         } else {
+            invalidLabel.isHidden = true
             if let index = menuItems.firstIndex(of: cartAdd.text!) {
                 cart[menuItems[index]] = menuPrices[index]
             } else if (admin) {
-                menuItems.append(cartAdd.text!)
                 if(Double(adminPassword.text!) == nil) {
-                    menuPrices.append(0.0)
+                    invalidLabel.isHidden = false
                 } else {
+                    menuItems.append(cartAdd.text!)
                     menuPrices.append(Double(adminPassword.text!)!)
                 }
+            } else {
+                invalidLabel.isHidden = false
             }
         }
         
@@ -67,25 +59,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cartRemoveAction(_ sender: UIButton) {
-        var targetItems: UITextView!
-        var targetPrices: UITextView!
-        
-        if(admin) {
-            targetItems = menuItemList
-            targetPrices = menuPriceList
-        } else {
-            targetItems = cartItemList
-            targetPrices = cartItemList
-        }
-        
         if(cartAdd.text! == "" || ( !menuItems.contains(cartAdd.text!) && !admin)) {
-            return
+            invalidLabel.isHidden = false
         } else {
+            invalidLabel.isHidden = true
             if(!admin) {
                 cart.removeValue(forKey: cartAdd.text!)
             } else if let index = menuItems.firstIndex(of: cartAdd.text!) {
                 menuItems.remove(at: index)
                 menuPrices.remove(at: index)
+            } else {
+                invalidLabel.isHidden = false
             }
         }
         
@@ -135,6 +119,30 @@ class ViewController: UIViewController {
             sum += price
         }
         priceLabel.text = "$\(sum)"
+    }
+    
+    @IBAction func sortPrice(_ sender: UIButton) {
+        var tempDict: [Double : String] = [:]
+        for i in menuPrices {
+            tempDict[i] = menuItems[menuPrices.firstIndex(of: i)]
+        }
+        menuPrices.sort()
+        
+        for i in menuPrices.indices {
+            menuItems[i] = tempDict[menuPrices[i]]!
+        }
+        
+        
+    }
+    
+    @IBAction func sortName(_ sender: UIButton) {
+        var tempDict: [String : Double] = [:]
+        var tempArray = menuItems
+        
+        for i in menuItems {
+            
+        }
+        
     }
 }
 

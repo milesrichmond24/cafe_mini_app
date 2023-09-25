@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             }
         }
         
-        update()
+        update(sorting: false)
     }
     
     @IBAction func cartRemoveAction(_ sender: UIButton) {
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
             }
         }
         
-        update()
+        update(sorting: false)
     }
     
     @IBAction func adminLogIn(_ sender: UIButton) {
@@ -87,11 +87,11 @@ class ViewController: UIViewController {
         adminPassword.text = ""
     }
     
-    func update() {
+    func update(sorting: Bool) {
         var itemString: String = ""
         var priceString: String = ""
         
-        if(admin) {
+        if(admin || sorting) {
             for item in menuItems {
                 itemString.append("\(item)\n")
             }
@@ -124,25 +124,32 @@ class ViewController: UIViewController {
     @IBAction func sortPrice(_ sender: UIButton) {
         var tempDict: [Double : String] = [:]
         for i in menuPrices {
-            tempDict[i] = menuItems[menuPrices.firstIndex(of: i)]
+            tempDict[i] = menuItems[menuPrices.firstIndex(of: i)!]
         }
         menuPrices.sort()
         
         for i in menuPrices.indices {
-            menuItems[i] = tempDict[menuPrices[i]]!
+            let index = menuPrices[i]
+            menuItems[i] = tempDict[index]!
         }
         
-        
+        update(sorting: true)
     }
     
     @IBAction func sortName(_ sender: UIButton) {
         var tempDict: [String : Double] = [:]
-        var tempArray = menuItems
-        
         for i in menuItems {
-            
+            tempDict[i] = menuPrices[menuItems.firstIndex(of: i)!]
         }
         
+        menuItems.sort()
+        
+        for i in menuItems.indices {
+            let index = menuItems[i]
+            menuPrices[i] = tempDict[index]!
+        }
+        
+        update(sorting: true)
     }
 }
 

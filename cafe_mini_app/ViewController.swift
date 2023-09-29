@@ -122,12 +122,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sortPrice(_ sender: UIButton) {
+        // Creating temporary dictionary of price : item
+        // This is intended to store the original state of the parallel arrays
         var tempDict: [Double : String] = [:]
         for i in menuPrices {
             tempDict[i] = menuItems[menuPrices.firstIndex(of: i)!]
         }
+        
+        // Sort original arry of prices
         menuPrices.sort()
         
+        // Reset the values in items with the original state of the new value in prices
         for i in menuPrices.indices {
             let index = menuPrices[i]
             menuItems[i] = tempDict[index]!
